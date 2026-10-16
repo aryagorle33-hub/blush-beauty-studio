@@ -1,0 +1,1282 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Skin & Facial | Blush Beauty Studio</title>
+  <meta name="description" content="Discover relaxing facials, skincare essentials and personalized beauty treatments at Blush Beauty Studio.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --rose: #b85f78;
+      --rose-dark: #843d53;
+      --blush: #f7e6e9;
+      --cream: #fffaf6;
+      --ink: #30232a;
+      --muted: #76656b;
+      --line: #ead6d9;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+    }
+
+    .wrap {
+      width: min(1160px, 90%);
+      margin: auto;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 3px;
+      font-weight: 700;
+      color: var(--rose);
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .accent {
+      color: var(--rose);
+      font-style: italic;
+    }
+
+    /* NAVIGATION */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 250, 246, 0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #ead6d955;
+    }
+
+    .nav-wrap {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand {
+      font: 700 34px/1 'Playfair Display', serif;
+      letter-spacing: -1px;
+      flex-shrink: 0;
+    }
+
+    .brand span {
+      color: var(--rose);
+    }
+
+    .brand small {
+      display: block;
+      font: 700 9px 'DM Sans', sans-serif;
+      letter-spacing: 4px;
+      margin-top: 7px;
+      color: var(--muted);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    nav a {
+      font-size: 12px;
+      color: #51434a;
+      transition: 0.2s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--rose);
+    }
+
+    nav a.active {
+      font-weight: 700;
+    }
+
+    .nav-cta, .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--rose);
+      color: white;
+      border: 0;
+      border-radius: 40px;
+      padding: 14px 23px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .nav-cta:hover, .btn:hover {
+      background: var(--rose-dark);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 0;
+      background: none;
+      color: var(--ink);
+      font-size: 27px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .hero {
+      background: linear-gradient(115deg, #f7e6e9, #f3dfe3);
+      padding: 65px 0 80px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.03fr 0.97fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .hero h1 {
+      font-size: clamp(46px, 5.7vw, 76px);
+      line-height: 1.08;
+      letter-spacing: -1.8px;
+    }
+
+    .hero-copy {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.9;
+      max-width: 490px;
+      margin-top: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .under-link {
+      font-size: 13px;
+      font-weight: 700;
+      border-bottom: 1px solid var(--rose);
+      padding-bottom: 5px;
+    }
+
+    .hero-photo {
+      height: 430px;
+      border-radius: 220px 220px 18px 18px;
+      overflow: hidden;
+      box-shadow: 0 25px 65px #84405218;
+    }
+
+    .hero-footnote {
+      margin-top: 35px;
+      font-size: 12px;
+      color: #8b747d;
+    }
+
+    /* INTRODUCTION */
+
+    section {
+      padding: 85px 0;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 75px;
+      align-items: center;
+    }
+
+    .intro-photo {
+      height: 430px;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .intro h2 {
+      font-size: clamp(36px, 4vw, 54px);
+      line-height: 1.18;
+      margin-bottom: 23px;
+    }
+
+    .intro-copy {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.95;
+      margin-bottom: 16px;
+    }
+
+    /* SECTION HEADINGS */
+
+    .services {
+      background: #fbf0f1;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(36px, 4.5vw, 54px);
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    .section-heading > p:last-child {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* SERVICE CARDS */
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      background: white;
+      border: 1px solid #efdcdf;
+      border-radius: 15px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 18px 38px #8e4b5d12;
+    }
+
+    .service-image {
+      height: 240px;
+      overflow: hidden;
+    }
+
+    .service-image img {
+      transition: transform 0.5s;
+    }
+
+    .service-card:hover .service-image img {
+      transform: scale(1.06);
+    }
+
+    .service-body {
+      padding: 23px;
+    }
+
+    .service-body h3 {
+      font-size: 24px;
+      color: var(--rose-dark);
+      margin-bottom: 11px;
+    }
+
+    .service-body p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.8;
+      min-height: 70px;
+    }
+
+    .service-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #f0e4e5;
+      padding-top: 17px;
+      margin-top: 18px;
+    }
+
+    .service-bottom strong {
+      font-size: 13px;
+      color: var(--rose-dark);
+    }
+
+    .service-bottom a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--blush);
+      color: var(--rose-dark);
+      font-size: 18px;
+    }
+
+    .price-note {
+      text-align: center;
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 25px;
+    }
+
+    /* SKINCARE ROUTINE */
+
+    .routine-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .routine-card {
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: white;
+      transition: 0.25s;
+    }
+
+    .routine-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px #8e4b5d12;
+    }
+
+    .routine-number {
+      font: italic 38px 'Playfair Display', serif;
+      color: var(--rose);
+      margin-bottom: 15px;
+    }
+
+    .routine-card h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .routine-card p {
+      font-size: 13px;
+      line-height: 1.85;
+      color: var(--muted);
+    }
+
+    /* GALLERY */
+
+    .gallery {
+      background: #fff;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .gallery-card {
+      border-radius: 15px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: white;
+    }
+
+    .gallery-card img {
+      height: 300px;
+      transition: transform 0.4s;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.04);
+    }
+
+    .gallery-card h3 {
+      font-size: 22px;
+      color: var(--rose-dark);
+      padding: 18px 20px 6px;
+    }
+
+    .gallery-card p {
+      color: var(--muted);
+      font-size: 12px;
+      padding: 0 20px 20px;
+      line-height: 1.7;
+    }
+
+    /* BOOKING */
+
+    .booking {
+      background: var(--blush);
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .booking-copy h2 {
+      font-size: clamp(38px, 4.4vw, 56px);
+      line-height: 1.17;
+      margin-bottom: 23px;
+    }
+
+    .booking-copy > p:not(.eyebrow) {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .booking-note {
+      margin-top: 25px;
+      color: var(--rose-dark);
+      font-size: 12px;
+    }
+
+    .booking-form {
+      background: white;
+      padding: 34px;
+      border-radius: 18px;
+      box-shadow: 0 15px 45px #8e4b5d0b;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 17px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin-bottom: 19px;
+    }
+
+    .form-group label {
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fffaf8;
+      color: var(--ink);
+      font-size: 13px;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--rose);
+      box-shadow: 0 0 0 3px #b85f7814;
+    }
+
+    .form-group textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+    }
+
+    .form-message {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--rose-dark);
+      margin-top: 14px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: var(--ink);
+      color: white;
+      padding: 50px 0 24px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      padding-bottom: 35px;
+    }
+
+    .footer-brand p,
+    .footer-contact p {
+      color: #d7c8d0;
+      font-size: 12px;
+      line-height: 2;
+      margin-top: 12px;
+    }
+
+    .footer-contact h3 {
+      font-size: 23px;
+      margin-bottom: 13px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #ffffff22;
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      color: #d7c8d0;
+      font-size: 11px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1050px) {
+      nav {
+        gap: 12px;
+      }
+
+      nav a {
+        font-size: 11px;
+      }
+
+      .hero-grid,
+      .intro-grid,
+      .booking-grid {
+        gap: 35px;
+      }
+
+      .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav-wrap {
+        min-height: 74px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 74px;
+        left: 0;
+        width: 100%;
+        padding: 14px 5% 24px;
+        background: var(--cream);
+        box-shadow: 0 15px 25px #0000000b;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      nav.open {
+        display: flex;
+      }
+
+      nav a {
+        padding: 13px 8px;
+        font-size: 13px;
+      }
+
+      nav .nav-cta {
+        text-align: center;
+        margin-top: 8px;
+      }
+
+      .hero {
+        padding: 48px 0 60px;
+      }
+
+      .hero-grid,
+      .intro-grid,
+      .booking-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .hero h1 {
+        font-size: 49px;
+      }
+
+      .hero-photo {
+        height: 340px;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .intro-photo {
+        height: 320px;
+      }
+
+      .service-grid,
+      .routine-grid,
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-image {
+        height: 250px;
+      }
+
+      .gallery-card img {
+        height: 280px;
+      }
+
+      .booking-form {
+        padding: 24px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .footer-top,
+      .footer-bottom {
+        flex-direction: column;
+      }
+
+      .footer-top {
+        gap: 25px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .hero h1 {
+        font-size: 41px;
+      }
+
+      .hero-actions {
+        gap: 17px;
+      }
+
+      .btn {
+        padding: 14px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER AND NAVIGATION -->
+  <header>
+    <div class="wrap nav-wrap">
+
+      <a href="index.html" class="brand">
+        Blush<span>.</span>
+        <small>BEAUTY STUDIO</small>
+      </a>
+
+      <nav id="navbar">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#services">Services</a>
+        <a href="makeup.html">Makeup</a>
+        <a href="hair-styling.html">Hair Styling</a>
+        <a href="beauty-products.html">Products</a>
+        <a href="skin.html" class="active">Skin</a>
+        <a href="#booking" class="nav-cta">Book Now ↗</a>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+        ☰
+      </button>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+
+        <div>
+          <p class="eyebrow">A MOMENT JUST FOR YOU</p>
+
+          <h1>
+            Love your skin.<br>
+            <span class="accent">Glow naturally.</span>
+          </h1>
+
+          <p class="hero-copy">
+            Discover a little self-care with relaxing facials and
+            skincare essentials. Explore beauty treatments and
+            find a routine that feels right for you.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#booking" class="btn">Book Your Facial ↗</a>
+            <a href="#services" class="under-link">Explore Treatments ↓</a>
+          </div>
+
+          <p class="hero-footnote">
+            ✦ Your skin. Your care. Your natural glow.
+          </p>
+        </div>
+
+        <div class="hero-photo">
+          <img
+            src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1000&q=85"
+            alt="Relaxing facial treatment at a beauty salon"
+            loading="eager">
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INTRODUCTION -->
+    <section class="intro" id="about">
+      <div class="wrap intro-grid">
+
+        <div class="intro-photo">
+          <img
+            src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=900&q=85"
+            alt="Beauty and skincare essentials"
+            loading="lazy">
+        </div>
+
+        <div>
+          <p class="eyebrow">WELCOME TO SKIN CARE</p>
+
+          <h2>
+            Your skin deserves<br>
+            <span class="accent">a little love.</span>
+          </h2>
+
+          <p class="intro-copy">
+            At Blush Beauty Studio, we believe skincare should feel
+            relaxing, simple and personal. Take time for yourself
+            with our facial services and beauty essentials.
+          </p>
+
+          <p class="intro-copy">
+            Whether you are refreshing your routine or looking for
+            a little pampering, discover skincare options in a
+            welcoming beauty-studio environment.
+          </p>
+
+          <a href="#services" class="under-link">
+            Discover our treatments ↗
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKIN TREATMENTS -->
+    <section class="services" id="services">
+      <div class="wrap">
+
+        <div class="section-heading">
+          <p class="eyebrow">YOUR SELF-CARE MENU</p>
+          <h2>Our skin <span class="accent">treatments</span></h2>
+          <p>Find a little time to relax and refresh.</p>
+        </div>
+
+        <div class="service-grid">
+
+          <article class="service-card" data-service="Express Facial">
+            <div class="service-image">
+              <img
+                src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=700&q=85"
+                alt="Professional facial treatment"
+                loading="lazy">
+            </div>
+
+            <div class="service-body">
+              <h3>Express Facial</h3>
+              <p>
+                A quick skincare refresh for when you want
+                a relaxing little break.
+              </p>
+
+              <div class="service-bottom">
+                <strong>From ₹799</strong>
+                <a href="#booking" aria-label="Book Express Facial">↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-card" data-service="Hydrating Facial">
+            <div class="service-image">
+              <img
+                src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=700&q=85"
+                alt="Hydrating skincare and beauty products"
+                loading="lazy">
+            </div>
+
+            <div class="service-body">
+              <h3>Hydrating Facial</h3>
+              <p>
+                Enjoy a pampering facial focused on hydration
+                and a fresh, comfortable skin feel.
+              </p>
+
+              <div class="service-bottom">
+                <strong>From ₹999</strong>
+                <a href="#booking" aria-label="Book Hydrating Facial">↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-card" data-service="Glow Facial">
+            <div class="service-image">
+              <img
+                src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=700&q=85"
+                alt="Skincare beauty essentials"
+                loading="lazy">
+            </div>
+
+            <div class="service-body">
+              <h3>Glow Facial</h3>
+              <p>
+                Take time out for a soothing skincare
+                experience and a refreshed look.
+              </p>
+
+              <div class="service-bottom">
+                <strong>From ₹1,199</strong>
+                <a href="#booking" aria-label="Book Glow Facial">↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-card" data-service="Skincare Consultation">
+            <div class="service-image">
+              <img
+                src="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=700&q=85"
+                alt="Skincare products for a daily routine"
+                loading="lazy">
+            </div>
+
+            <div class="service-body">
+              <h3>Skincare Consultation</h3>
+              <p>
+                Explore a simple daily routine and discuss
+                products suited to your preferences.
+              </p>
+
+              <div class="service-bottom">
+                <strong>From ₹299</strong>
+                <a href="#booking" aria-label="Book Skincare Consultation">↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-card" data-service="Skin Clean-Up">
+            <div class="service-image">
+              <img
+                src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=700&q=85"
+                alt="Beauty and skincare products"
+                loading="lazy">
+            </div>
+
+            <div class="service-body">
+              <h3>Skin Clean-Up</h3>
+              <p>
+                A simple salon skincare session to refresh
+                your self-care routine.
+              </p>
+
+              <div class="service-bottom">
+                <strong>From ₹599</strong>
+                <a href="#booking" aria-label="Book Skin Clean-Up">↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-card" data-service="Product Guidance">
+            <div class="service-image">
+              <img
+                src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=700&q=85"
+                alt="Skincare products and cosmetics"
+                loading="lazy">
+            </div>
+
+            <div class="service-body">
+              <h3>Product Guidance</h3>
+              <p>
+                Explore cleansers, moisturizers and other
+                everyday skincare essentials.
+              </p>
+
+              <div class="service-bottom">
+                <strong>Ask us</strong>
+                <a href="#booking" aria-label="Ask about skincare products">↗</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <p class="price-note">
+          *Prices are examples. Update them to match your salon's actual prices.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- SKINCARE ROUTINE -->
+    <section id="routine">
+      <div class="wrap">
+
+        <div class="section-heading">
+          <p class="eyebrow">KEEP IT SIMPLE</p>
+          <h2>Your daily <span class="accent">skin routine</span></h2>
+          <p>Three simple steps for a consistent skincare habit.</p>
+        </div>
+
+        <div class="routine-grid">
+
+          <article class="routine-card">
+            <div class="routine-number">01</div>
+            <h3>Cleanse</h3>
+            <p>
+              Use a gentle cleanser suited to your skin to remove
+              everyday dirt, oil and makeup.
+            </p>
+          </article>
+
+          <article class="routine-card">
+            <div class="routine-number">02</div>
+            <h3>Moisturize</h3>
+            <p>
+              Apply a suitable moisturizer to help keep your skin
+              comfortable and hydrated.
+            </p>
+          </article>
+
+          <article class="routine-card">
+            <div class="routine-number">03</div>
+            <h3>Protect</h3>
+            <p>
+              During the day, use broad-spectrum sunscreen with
+              SPF 30 or higher and reapply as directed.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- BEAUTY GALLERY -->
+    <section class="gallery" id="gallery">
+      <div class="wrap">
+
+        <div class="section-heading">
+          <p class="eyebrow">BEAUTY IN EVERY DETAIL</p>
+          <h2>Our skincare <span class="accent">gallery</span></h2>
+          <p>A little inspiration for your next self-care moment.</p>
+        </div>
+
+        <div class="gallery-grid">
+
+          <article class="gallery-card">
+            <img
+              src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=85"
+              alt="Relaxing facial spa treatment"
+              loading="lazy">
+            <h3>Facial Care</h3>
+            <p>Relax, refresh and enjoy a little time for yourself.</p>
+          </article>
+
+          <article class="gallery-card">
+            <img
+              src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=800&q=85"
+              alt="Skincare essentials and cosmetics"
+              loading="lazy">
+            <h3>Beauty Essentials</h3>
+            <p>Discover everyday products for your beauty routine.</p>
+          </article>
+
+          <article class="gallery-card">
+            <img
+              src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=800&q=85"
+              alt="Skincare and moisturizer products"
+              loading="lazy">
+            <h3>Daily Skincare</h3>
+            <p>Keep your routine simple, consistent and personal.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING SECTION -->
+    <section class="booking" id="booking">
+      <div class="wrap booking-grid">
+
+        <div class="booking-copy">
+          <p class="eyebrow">YOUR SKINCARE DATE</p>
+
+          <h2>
+            Ready for your<br>
+            <span class="accent">glow-up?</span>
+          </h2>
+
+          <p>
+            Choose a treatment and enter your preferred date.
+            Take a little time for yourself at Blush Beauty Studio.
+          </p>
+
+          <p class="booking-note">
+            ✧ Your personalized beauty experience awaits.
+          </p>
+        </div>
+
+        <form class="booking-form" id="bookingForm">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+                required>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input
+                type="tel"
+                id="phone"
+                placeholder="10-digit mobile number"
+                pattern="[6-9][0-9]{9}"
+                maxlength="10"
+                required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="service">Choose Your Treatment</label>
+            <select id="service" required>
+              <option value="">Select a treatment</option>
+              <option>Express Facial</option>
+              <option>Hydrating Facial</option>
+              <option>Glow Facial</option>
+              <option>Skincare Consultation</option>
+              <option>Skin Clean-Up</option>
+              <option>Product Guidance</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="date">Preferred Date</label>
+              <input type="date" id="date" required>
+            </div>
+
+            <div class="form-group">
+              <label for="time">Preferred Time</label>
+              <select id="time" required>
+                <option value="">Select time</option>
+                <option>10:00 AM</option>
+                <option>11:00 AM</option>
+                <option>12:00 PM</option>
+                <option>2:00 PM</option>
+                <option>3:00 PM</option>
+                <option>4:00 PM</option>
+                <option>5:00 PM</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Additional Message (Optional)</label>
+            <textarea
+              id="message"
+              placeholder="Tell us about your preferred treatment..."></textarea>
+          </div>
+
+          <button class="btn submit-btn" type="submit">
+            Request Appointment ↗
+          </button>
+
+          <p class="form-message" id="formMessage" aria-live="polite"></p>
+
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="wrap">
+
+      <div class="footer-top">
+
+        <div class="footer-brand">
+          <a href="index.html" class="brand">
+            Blush<span>.</span>
+          </a>
+
+          <p>Beauty begins with a little self-love. ♡</p>
+        </div>
+
+        <div class="footer-contact">
+          <h3>Visit Our Studio</h3>
+          <p>123 Beauty Lane, Your City</p>
+          <p>Phone: +91 98765 43210</p>
+          <p>Mon – Sun | 10 AM – 7 PM</p>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Blush Beauty Studio. All rights reserved.</p>
+        <a href="#home">Back to top ↑</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // MOBILE NAVIGATION
+    const menuToggle = document.getElementById("menuToggle");
+    const navbar = document.getElementById("navbar");
+
+    menuToggle.addEventListener("click", () => {
+      navbar.classList.toggle("open");
+
+      const opened = navbar.classList.contains("open");
+
+      menuToggle.textContent = opened ? "✕" : "☰";
+      menuToggle.setAttribute(
+        "aria-label",
+        opened ? "Close menu" : "Open menu"
+      );
+    });
+
+    navbar.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navbar.classList.remove("open");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // CLICKING A SERVICE CARD SELECTS THAT TREATMENT
+    document.querySelectorAll(".service-card").forEach(card => {
+      card.setAttribute("tabindex", "0");
+      card.setAttribute("role", "link");
+
+      function selectTreatment() {
+        document.getElementById("service").value = card.dataset.service;
+
+        document.getElementById("booking").scrollIntoView({
+          behavior: "smooth"
+        });
+      }
+
+      card.addEventListener("click", event => {
+        event.preventDefault();
+        selectTreatment();
+      });
+
+      card.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          selectTreatment();
+        }
+      });
+    });
+
+    // PREVENT PAST APPOINTMENT DATES
+    const dateInput = document.getElementById("date");
+
+    function setMinimumDate() {
+      const now = new Date();
+
+      const today = new Date(
+        now.getTime() - now.getTimezoneOffset() * 60000
+      ).toISOString().slice(0, 10);
+
+      dateInput.min = today;
+    }
+
+    setMinimumDate();
+
+    // APPOINTMENT FORM DEMO
+    const bookingForm = document.getElementById("bookingForm");
+    const formMessage = document.getElementById("formMessage");
+
+    bookingForm.addEventListener("submit", event => {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const service = document.getElementById("service").value;
+      const date = dateInput.value;
+      const time = document.getElementById("time").value;
+
+      if (!/^[6-9][0-9]{9}$/.test(phone)) {
+        formMessage.textContent =
+          "Please enter a valid 10-digit mobile number.";
+        return;
+      }
+
+      formMessage.textContent =
+        `Thank you, ${name}! Your request for ${service} on ${date} at ${time} has been recorded in this demo. Please contact the salon to confirm your appointment.`;
+
+      bookingForm.reset();
+      setMinimumDate();
+    });
+  </script>
+
+</body>
+</html>

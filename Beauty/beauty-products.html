@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beauty Products | Blush Beauty Studio</title>
+<meta name="description" content="Explore everyday beauty and skincare essentials, with guidance to help you choose products that fit your routine and preferences.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{--rose:#b85f78;--rose-dark:#843d53;--blush:#f7e6e9;--cream:#fffaf6;--ink:#30232a;--muted:#76656b;--line:#ead6d9;--white:#fff}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;scroll-padding-top:85px}body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink)}a{text-decoration:none;color:inherit}img{display:block;width:100%;height:100%;object-fit:cover}button{font:inherit}h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500}.wrap{width:min(1160px,90%);margin:auto}.eyebrow{font-size:11px;letter-spacing:3px;font-weight:700;color:var(--rose);text-transform:uppercase;margin-bottom:18px}.accent{color:var(--rose);font-style:italic}
+header{position:sticky;top:0;z-index:50;background:rgba(255,250,246,.97);backdrop-filter:blur(12px);border-bottom:1px solid #ead6d955}.nav-wrap{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:25px}.brand{font:700 34px/1 'Playfair Display',serif;letter-spacing:-1px}.brand span{color:var(--rose)}.brand small{display:block;font:700 9px 'DM Sans',sans-serif;letter-spacing:4px;margin-top:7px;color:var(--muted)}nav{display:flex;align-items:center;gap:20px}nav a{font-size:12px;color:#51434a;transition:.2s}nav a:hover{color:var(--rose)}.nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--rose);color:white;border:0;border-radius:40px;padding:14px 23px;font-size:13px;font-weight:700;cursor:pointer;transition:.25s}.nav-cta:hover,.btn:hover{background:var(--rose-dark);transform:translateY(-2px)}.menu-toggle{display:none;border:0;background:none;color:var(--ink);font-size:27px;cursor:pointer}
+.page-hero{padding:70px 0;background:linear-gradient(115deg,#f7e6e9,#f3dfe3)}.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}.page-hero h1{font-size:clamp(44px,5.5vw,72px);line-height:1.1;letter-spacing:-1.5px}.page-hero p.copy{color:var(--muted);font-size:15px;line-height:1.9;max-width:520px;margin:22px 0 28px}.hero-photo{height:410px;border-radius:220px 220px 18px 18px;overflow:hidden;box-shadow:0 25px 65px #84405218}
+section{padding:76px 0}.section-heading{text-align:center;margin-bottom:40px}.section-heading h2{font-size:clamp(36px,4vw,52px);margin-bottom:12px}.section-heading>p:last-child{font-size:14px;color:var(--muted)}.service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.service-card{background:white;border:1px solid #efdcdf;border-radius:15px;padding:25px 22px;transition:.25s}.service-card:hover{transform:translateY(-5px);box-shadow:0 18px 38px #8e4b5d12}.service-card h3{font-size:23px;color:var(--rose-dark);margin-bottom:12px}.service-card p{font-size:13px;color:var(--muted);line-height:1.8;min-height:70px}.service-card strong{display:block;border-top:1px solid #f0e4e5;padding-top:15px;margin-top:18px;color:var(--rose-dark);font-size:13px}.cta{background:var(--blush);text-align:center}.cta h2{font-size:clamp(34px,4vw,48px);margin-bottom:14px}.cta p{color:var(--muted);font-size:14px;line-height:1.8;margin:0 auto 24px;max-width:600px}
+footer{background:var(--ink);color:white;padding:38px 0 24px}.footer-bottom{display:flex;justify-content:space-between;gap:18px;color:#d7c8d0;font-size:12px}.footer-bottom a{color:white}
+@media(max-width:1000px){nav{gap:12px}.service-grid{grid-template-columns:repeat(2,1fr)}.hero-grid{gap:35px}}
+@media(max-width:700px){.nav-wrap{min-height:74px}.menu-toggle{display:block}nav{display:none;position:absolute;top:74px;left:0;width:100%;padding:14px 5% 24px;background:var(--cream);box-shadow:0 15px 25px #0000000b;flex-direction:column;align-items:stretch;gap:0}nav.open{display:flex}nav a{padding:13px 8px}.nav-cta{text-align:center;margin-top:8px}.hero-grid{grid-template-columns:1fr;gap:32px}.page-hero{padding:48px 0}.hero-photo{height:320px}.service-grid{grid-template-columns:1fr}section{padding:58px 0}.footer-bottom{flex-direction:column}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav-wrap">
+<a href="index.html" class="brand">Blush<span>.</span><small>BEAUTY STUDIO</small></a>
+<nav id="navbar">
+<a href="index.html">Home</a><a href="index.html#about">About</a><a href="index.html#services">Services</a>
+<a href="makeup.html">Makeup</a><a href="hair-styling.html">Hair Styling</a>
+<a href="beauty-products.html">Products</a>
+<a href="skincare.html">Skin</a>
+<a href="index.html#booking" class="nav-cta">Book Now ↗</a>
+</nav>
+<button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+</div></header>
+<main>
+<section class="page-hero"><div class="wrap hero-grid">
+<div><p class="eyebrow">YOUR EVERYDAY BEAUTY EDIT</p><h1>Little essentials. <span class='accent'>Big glow.</span></h1><p class="copy">Explore everyday beauty and skincare essentials, with guidance to help you choose products that fit your routine and preferences.</p><a href="index.html#booking" class="btn">Book / Enquire ↗</a></div>
+<div class="hero-photo"><img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=1100&q=85" alt="Beauty and skincare products"></div>
+</div></section>
+<section><div class="wrap"><div class="section-heading"><p class="eyebrow">MADE FOR YOU</p><h2>Explore our <span class="accent">services</span></h2><p>Choose an option and contact us to learn more.</p></div><div class="service-grid"><article class='service-card'><h3>Makeup Essentials</h3><p>Everyday complexion, lip and eye products.</p><strong>From ₹299</strong></article><article class='service-card'><h3>Skincare Basics</h3><p>Cleanser, moisturizer and sunscreen essentials.</p><strong>From ₹299</strong></article><article class='service-card'><h3>Beauty Tools</h3><p>Brushes, sponges and tools for your routine.</p><strong>From ₹199</strong></article><article class='service-card'><h3>Product Consultation</h3><p>Ask for help choosing products for your needs.</p><strong>Free enquiry</strong></article></div></div></section>
+<section class="cta"><div class="wrap"><p class="eyebrow">YOUR BEAUTY DATE</p><h2>Ready for your <span class="accent">glow-up?</span></h2><p>Choose your preferred service and send an appointment request from our home page.</p><a href="index.html#booking" class="btn">Request an Appointment ↗</a></div></section>
+</main>
+<footer><div class="wrap footer-bottom"><p>© 2026 Blush Beauty Studio. All rights reserved.</p><a href="index.html">← Back to home</a></div></footer>
+<script>
+const menuToggle=document.getElementById('menuToggle');
+const navbar=document.getElementById('navbar');
+menuToggle.addEventListener('click',()=>{
+ navbar.classList.toggle('open');
+ const opened=navbar.classList.contains('open');
+ menuToggle.textContent=opened?'✕':'☰';
+ menuToggle.setAttribute('aria-label',opened?'Close menu':'Open menu');
+});
+navbar.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
+ navbar.classList.remove('open');menuToggle.textContent='☰';
+}));
+</script>
+</body>
+</html>

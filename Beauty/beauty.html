@@ -1,0 +1,608 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Makeup | Blush Beauty Studio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --pink: #bd607b;
+  --dark-pink: #91445d;
+  --blush: #f7e5e9;
+  --cream: #fffaf6;
+  --ink: #30232a;
+  --muted: #76656b;
+  --line: #ead6d9;
+  --white: #fff;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+body { font-family: 'DM Sans', sans-serif; color: var(--ink); background: var(--cream); }
+a { color: inherit; text-decoration: none; }
+img { width: 100%; height: 100%; object-fit: cover; display: block; }
+button, input, select, textarea { font: inherit; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; }
+.wrap { width: min(1160px, 90%); margin: auto; }
+.eyebrow { color: var(--pink); font-size: 11px; letter-spacing: 3px; font-weight: 700; margin-bottom: 18px; }
+.accent { color: var(--pink); font-style: italic; }
+
+header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,250,246,.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-wrap { min-height: 82px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.brand { font: 700 34px/1 'Playfair Display', serif; letter-spacing: -1px; flex-shrink: 0; }
+.brand span { color: var(--pink); }
+.brand small { display: block; font: 700 9px 'DM Sans', sans-serif; letter-spacing: 4px; color: var(--muted); margin-top: 7px; }
+nav { display: flex; align-items: center; gap: 18px; }
+nav a { font-size: 12px; color: #51434a; transition: .2s; }
+nav a:hover, nav a.active { color: var(--pink); }
+nav a.active { font-weight: 700; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--pink); color: white; border: 0;
+  border-radius: 40px; padding: 14px 23px;
+  font-size: 13px; font-weight: 700; cursor: pointer; transition: .25s;
+}
+.btn:hover { background: var(--dark-pink); transform: translateY(-2px); color: white; }
+.menu-toggle { display: none; border: 0; background: none; font-size: 27px; cursor: pointer; color: var(--ink); }
+
+/* HERO */
+.hero { background: linear-gradient(115deg,#f9e9ec,#f2dce2); padding: 65px 0 75px; }
+.hero-grid { display: grid; grid-template-columns: 1.03fr .97fr; align-items: center; gap: 60px; }
+.hero h1 { font-size: clamp(46px,5.7vw,76px); line-height: 1.08; letter-spacing: -1.8px; }
+.hero-copy { color: var(--muted); font-size: 15px; line-height: 1.9; max-width: 490px; margin-top: 24px; }
+.hero-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-top: 30px; }
+.text-link { font-size: 13px; font-weight: 700; border-bottom: 1px solid var(--pink); padding-bottom: 5px; }
+.hero-note { margin-top: 30px; color: #8b747d; font-size: 12px; }
+.hero-photo { height: 440px; border-radius: 220px 220px 18px 18px; overflow: hidden; box-shadow: 0 25px 65px #84405218; }
+
+/* INTRO */
+section { padding: 82px 0; }
+.intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 75px; align-items: center; }
+.intro-photo { height: 410px; border-radius: 15px; overflow: hidden; }
+.intro h2 { font-size: clamp(36px,4vw,54px); line-height: 1.18; margin-bottom: 22px; }
+.intro-copy { color: var(--muted); font-size: 14px; line-height: 1.95; margin-bottom: 16px; }
+
+/* SERVICES */
+.services { background: #fbf0f2; }
+.section-heading { text-align: center; margin-bottom: 42px; }
+.section-heading h2 { font-size: clamp(35px,4.5vw,53px); line-height: 1.2; margin-bottom: 14px; }
+.section-heading > p:last-child { font-size: 14px; color: var(--muted); }
+.service-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+.service-card { background: white; border: 1px solid #efdcdf; border-radius: 13px; overflow: hidden; transition: .25s; cursor: pointer; }
+.service-card:hover { transform: translateY(-7px); box-shadow: 0 18px 38px #8e4b5d15; }
+.service-image { height: 215px; overflow: hidden; }
+.service-image img { transition: transform .5s; }
+.service-card:hover img { transform: scale(1.06); }
+.service-body { padding: 20px; }
+.service-body h3 { font-size: 22px; color: var(--dark-pink); margin-bottom: 10px; }
+.service-body p { color: var(--muted); font-size: 12px; line-height: 1.8; min-height: 64px; }
+.service-bottom { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #f0e4e5; padding-top: 15px; margin-top: 15px; }
+.service-bottom strong { font-size: 12px; color: var(--dark-pink); }
+.round-link { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; background: var(--blush); color: var(--dark-pink); font-size: 17px; }
+.price-note { text-align: center; color: var(--muted); font-size: 11px; margin-top: 24px; }
+
+/* MAKEUP LOOKS */
+.gallery-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+.gallery-card { overflow: hidden; border-radius: 12px; }
+.gallery-card img { height: 255px; border-radius: 10px; transition: transform .4s; }
+.gallery-card:hover img { transform: scale(1.04); }
+.gallery-card h3 { font-size: 21px; margin: 14px 0 6px; }
+.gallery-card p { font-size: 12px; line-height: 1.8; color: var(--muted); }
+
+/* WHY US */
+.why { background: #fff; }
+.why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.why-card { border: 1px solid var(--line); border-radius: 14px; padding: 30px; background: var(--cream); }
+.why-icon { font-size: 28px; margin-bottom: 16px; }
+.why-card h3 { font-size: 23px; margin-bottom: 10px; }
+.why-card p { color: var(--muted); font-size: 13px; line-height: 1.85; }
+
+/* BOOKING */
+.booking { background: var(--blush); }
+.booking-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 65px; align-items: center; }
+.booking-copy h2 { font-size: clamp(38px,4.4vw,56px); line-height: 1.17; margin-bottom: 22px; }
+.booking-copy > p:not(.eyebrow) { color: var(--muted); font-size: 14px; line-height: 1.9; }
+.booking-note { margin-top: 24px; color: var(--dark-pink); font-size: 12px; }
+.booking-form { background: white; padding: 32px; border-radius: 16px; box-shadow: 0 15px 45px #8e4b5d0b; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 9px; margin-bottom: 18px; }
+.form-group label { font-size: 12px; font-weight: 700; }
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%; padding: 13px; border: 1px solid var(--line);
+  border-radius: 8px; background: #fffaf8; color: var(--ink); font-size: 13px; outline: none;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--pink); }
+.form-group textarea { min-height: 85px; resize: vertical; }
+.submit-btn { width: 100%; }
+.form-message { margin-top: 14px; font-size: 13px; line-height: 1.7; color: var(--dark-pink); }
+
+/* FOOTER */
+footer { background: var(--ink); color: white; padding: 48px 0 24px; }
+.footer-top { display: flex; justify-content: space-between; gap: 30px; padding-bottom: 32px; }
+.footer-brand p, .footer-contact p { color: #d7c8d0; font-size: 12px; line-height: 2; margin-top: 10px; }
+.footer-contact h3 { font-size: 23px; margin-bottom: 12px; }
+.footer-quote { font: italic 22px 'Playfair Display',serif; color: #e8b8c7; align-self: center; text-align: center; }
+.footer-bottom { border-top: 1px solid #ffffff22; padding-top: 20px; display: flex; justify-content: space-between; gap: 18px; color: #d7c8d0; font-size: 11px; }
+
+@media(max-width:1050px) {
+  nav { gap: 12px; }
+  nav a { font-size: 11px; }
+  .hero-grid,.intro-grid,.booking-grid { gap: 35px; }
+  .service-grid,.gallery-grid { grid-template-columns: repeat(2,1fr); }
+}
+@media(max-width:760px) {
+  .nav-wrap { min-height: 74px; }
+  .menu-toggle { display: block; }
+  nav {
+    display: none; position: absolute; top: 74px; left: 0; width: 100%;
+    padding: 14px 5% 24px; background: var(--cream);
+    box-shadow: 0 15px 25px #0000000b; flex-direction: column; align-items: stretch; gap: 0;
+  }
+  nav.open { display: flex; }
+  nav a { padding: 13px 8px; font-size: 13px; }
+  nav .nav-cta { text-align: center; margin-top: 8px; }
+  .hero { padding: 45px 0 55px; }
+  .hero-grid,.intro-grid,.booking-grid { grid-template-columns: 1fr; gap: 32px; }
+  .hero h1 { font-size: 49px; }
+  .hero-photo { height: 340px; }
+  section { padding: 58px 0; }
+  .intro-photo { height: 300px; }
+  .service-grid,.gallery-grid,.why-grid { grid-template-columns: 1fr; }
+  .service-image { height: 255px; }
+  .gallery-card img { height: 280px; }
+  .booking-form { padding: 23px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .footer-top,.footer-bottom { flex-direction: column; }
+  .footer-top { gap: 24px; }
+}
+@media(min-width:480px) and (max-width:760px) {
+  .service-grid,.gallery-grid,.why-grid { grid-template-columns: repeat(2,1fr); }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap nav-wrap">
+    <a href="index.html" class="brand">Blush<span>.</span><small>BEAUTY STUDIO</small></a>
+    <nav id="navbar">
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="makeup.html" class="active">Makeup</a>
+      <a href="hair-styling.html">Hair Styling</a>
+      <a href="beauty-products.html">Products</a>
+      <a href="skin.html">Skin</a>
+      <a href="#booking" class="btn nav-cta">Book Now ↗</a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">BEAUTY IN EVERY SHADE</p>
+      <h1>Makeup that<br><span class="accent">brings out you.</span></h1>
+      <p class="hero-copy">
+        From natural everyday looks to glamorous bridal makeup,
+        we create styles that make you feel confident, comfortable
+        and absolutely beautiful.
+      </p>
+      <div class="hero-actions">
+        <a href="#booking" class="btn">Book Your Makeup Session ↗</a>
+        <a href="#services" class="text-link">Explore Looks ↓</a>
+      </div>
+      <p class="hero-note">✧ Flawless looks. For every occasion.</p>
+    </div>
+
+    <div class="hero-photo">
+      <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=1000&q=85"
+           alt="Beautiful makeup look" fetchpriority="high">
+    </div>
+  </div>
+</section>
+
+<!-- INTRODUCTION -->
+<section class="intro" id="about">
+  <div class="wrap intro-grid">
+    <div class="intro-photo">
+      <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=85"
+           alt="Makeup brushes and beauty cosmetics" loading="lazy">
+    </div>
+    <div>
+      <p class="eyebrow">OUR MAKEUP STUDIO</p>
+      <h2>More than makeup,<br><span class="accent">it's self-expression.</span></h2>
+      <p class="intro-copy">
+        At Blush Beauty Studio, we believe makeup is not just about
+        covering up — it's about highlighting your unique beauty.
+      </p>
+      <p class="intro-copy">
+        Our makeup services are designed around your personality,
+        preferences and special occasion, from soft natural finishes
+        to elegant, glamorous looks.
+      </p>
+      <a href="#booking" class="text-link">Let's create your look ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- MAKEUP SERVICES -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-heading">
+      <p class="eyebrow">OUR MAKEUP SERVICES</p>
+      <h2>Popular Makeup <span class="accent">Services</span></h2>
+      <p>Choose a look for your next special moment.</p>
+    </div>
+
+    <div class="service-grid">
+
+      <article class="service-card" data-service="Everyday Makeup">
+        <div class="service-image">
+          <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=700&q=85"
+               alt="Natural everyday makeup" loading="lazy">
+        </div>
+        <div class="service-body">
+          <h3>Everyday Makeup</h3>
+          <p>Fresh, natural makeup for outings, work and everyday occasions.</p>
+          <div class="service-bottom"><strong>From ₹999</strong><a class="round-link" href="#booking" aria-label="Book Everyday Makeup">↗</a></div>
+        </div>
+      </article>
+
+      <article class="service-card" data-service="Bridal Makeup">
+        <div class="service-image">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=85"
+               alt="Wedding and bridal beauty inspiration" loading="lazy">
+        </div>
+        <div class="service-body">
+          <h3>Bridal Makeup</h3>
+          <p>An elegant bridal look planned around your wedding style and preferences.</p>
+          <div class="service-bottom"><strong>From ₹4,999</strong><a class="round-link" href="#booking" aria-label="Book Bridal Makeup">↗</a></div>
+        </div>
+      </article>
+
+      <article class="service-card" data-service="Party Makeup">
+        <div class="service-image">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=700&q=85"
+               alt="Glamorous beauty inspiration" loading="lazy">
+        </div>
+        <div class="service-body">
+          <h3>Party Makeup</h3>
+          <p>Glamorous makeup for birthdays, celebrations and evening events.</p>
+          <div class="service-bottom"><strong>From ₹1,999</strong><a class="round-link" href="#booking" aria-label="Book Party Makeup">↗</a></div>
+        </div>
+      </article>
+
+      <article class="service-card" data-service="Makeup Consultation">
+        <div class="service-image">
+          <img src="https://images.unsplash.com/photo-1512316609839-ce289d3eba0a?auto=format&fit=crop&w=700&q=85"
+               alt="Makeup beauty look" loading="lazy">
+        </div>
+        <div class="service-body">
+          <h3>Makeup Consultation</h3>
+          <p>Discuss your occasion, preferred look and makeup inspiration with us.</p>
+          <div class="service-bottom"><strong>From ₹499</strong><a class="round-link" href="#booking" aria-label="Book Makeup Consultation">↗</a></div>
+        </div>
+      </article>
+
+      <article class="service-card" data-service="Engagement Makeup">
+        <div class="service-image">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=85"
+               alt="Elegant makeup inspiration" loading="lazy">
+        </div>
+        <div class="service-body">
+          <h3>Engagement Makeup</h3>
+          <p>A polished, camera-ready look for your engagement and pre-wedding events.</p>
+          <div class="service-bottom"><strong>From ₹2,999</strong><a class="round-link" href="#booking" aria-label="Book Engagement Makeup">↗</a></div>
+        </div>
+      </article>
+
+      <article class="service-card" data-service="HD Makeup">
+        <div class="service-image">
+          <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=700&q=85"
+               alt="Professional beauty makeup inspiration" loading="lazy">
+        </div>
+        <div class="service-body">
+          <h3>HD Makeup</h3>
+          <p>A refined makeup finish for celebrations, photographs and special occasions.</p>
+          <div class="service-bottom"><strong>From ₹2,499</strong><a class="round-link" href="#booking" aria-label="Book HD Makeup">↗</a></div>
+        </div>
+      </article>
+
+      <article class="service-card" data-service="Soft Glam Makeup">
+        <div class="service-image">
+          <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=85"
+               alt="Soft glam style inspiration" loading="lazy">
+        </div>
+        <div class="service-body">
+          <h3>Soft Glam</h3>
+          <p>Softly defined eyes, a radiant finish and a touch of understated glamour.</p>
+          <div class="service-bottom"><strong>From ₹1,799</strong><a class="round-link" href="#booking" aria-label="Book Soft Glam">↗</a></div>
+        </div>
+      </article>
+
+      <article class="service-card" data-service="Photoshoot Makeup">
+        <div class="service-image">
+          <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=700&q=85"
+               alt="Fashion and photoshoot inspiration" loading="lazy">
+        </div>
+        <div class="service-body">
+          <h3>Photoshoot Makeup</h3>
+          <p>Makeup styling tailored to your shoot, outfit and desired aesthetic.</p>
+          <div class="service-bottom"><strong>From ₹2,499</strong><a class="round-link" href="#booking" aria-label="Book Photoshoot Makeup">↗</a></div>
+        </div>
+      </article>
+
+    </div>
+    <p class="price-note">*Prices are sample prices. Please update them to match your actual salon rates.</p>
+  </div>
+</section>
+
+<!-- MAKEUP GALLERY -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="section-heading">
+      <p class="eyebrow">BEAUTY GALLERY</p>
+      <h2>Makeup Looks <span class="accent">We Love</span></h2>
+      <p>A little inspiration for your next look.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <article class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=800&q=85" alt="Natural beauty look" loading="lazy">
+        <h3>Natural Glam</h3>
+        <p>Soft. Fresh. Beautiful.</p>
+      </article>
+      <article class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=85" alt="Wedding beauty inspiration" loading="lazy">
+        <h3>Bridal Beauty</h3>
+        <p>Traditional meets modern.</p>
+      </article>
+      <article class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=85" alt="Party makeup inspiration" loading="lazy">
+        <h3>Party Ready</h3>
+        <p>Bold. Elegant. You.</p>
+      </article>
+      <article class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=85" alt="Makeup brushes and cosmetics" loading="lazy">
+        <h3>Makeup Essentials</h3>
+        <p>Beauty tools for your look.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why">
+  <div class="wrap">
+    <div class="section-heading">
+      <p class="eyebrow">THE BLUSH EXPERIENCE</p>
+      <h2>Beauty with a <span class="accent">personal touch</span></h2>
+      <p>Your comfort and individual style come first.</p>
+    </div>
+    <div class="why-grid">
+      <article class="why-card">
+        <div class="why-icon">♡</div>
+        <h3>Your Style, Your Way</h3>
+        <p>We listen to your preferences and help you choose a look that feels like you.</p>
+      </article>
+      <article class="why-card">
+        <div class="why-icon">✧</div>
+        <h3>Every Occasion</h3>
+        <p>Explore looks for weddings, parties, celebrations, photographs and everyday moments.</p>
+      </article>
+      <article class="why-card">
+        <div class="why-icon">❀</div>
+        <h3>Time for You</h3>
+        <p>Enjoy a welcoming beauty experience focused on your comfort and chosen look.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING FORM -->
+<section class="booking" id="booking">
+  <div class="wrap booking-grid">
+    <div class="booking-copy">
+      <p class="eyebrow">BOOK YOUR MAKEUP SESSION</p>
+      <h2>Ready to get<br><span class="accent">glam?</span></h2>
+      <p>Tell us about your preferred date and service. We can help you plan a look for your special occasion.</p>
+      <p class="booking-note">✧ Let's create your perfect look together.</p>
+    </div>
+
+    <form class="booking-form" id="bookingForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input id="name" type="text" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input id="phone" type="tel" placeholder="10-digit mobile number" pattern="[6-9][0-9]{9}" maxlength="10" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="service">Choose Your Service</label>
+          <select id="service" required>
+            <option value="">Select a service</option>
+            <option>Everyday Makeup</option>
+            <option>Bridal Makeup</option>
+            <option>Party Makeup</option>
+            <option>Makeup Consultation</option>
+            <option>Engagement Makeup</option>
+            <option>HD Makeup</option>
+            <option>Soft Glam Makeup</option>
+            <option>Photoshoot Makeup</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="date">Preferred Date</label>
+          <input id="date" type="date" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="time">Preferred Time</label>
+          <select id="time" required>
+            <option value="">Select time</option>
+            <option>10:00 AM</option>
+            <option>11:00 AM</option>
+            <option>12:00 PM</option>
+            <option>1:00 PM</option>
+            <option>2:00 PM</option>
+            <option>3:00 PM</option>
+            <option>4:00 PM</option>
+            <option>5:00 PM</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="occasion">Occasion</label>
+          <select id="occasion">
+            <option value="">Select occasion</option>
+            <option>Wedding</option>
+            <option>Engagement</option>
+            <option>Party</option>
+            <option>Photoshoot</option>
+            <option>Everyday</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Additional Message (Optional)</label>
+        <textarea id="message" placeholder="Tell us about your preferred makeup look or occasion..."></textarea>
+      </div>
+
+      <button class="btn submit-btn" type="submit">Request Appointment ↗</button>
+      <p class="form-message" id="formMessage" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">Blush<span>.</span><small>BEAUTY STUDIO</small></a>
+        <p>Beauty begins with a little self-love. ♡</p>
+      </div>
+      <div class="footer-contact">
+        <h3>Visit Our Studio</h3>
+        <p>123 Beauty Lane, Your City</p>
+        <p>Phone: +91 98765 43210</p>
+        <p>Mon – Sun | 10 AM – 7 PM</p>
+      </div>
+      <div class="footer-quote">Because you<br>deserve to feel beautiful ♡</div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Blush Beauty Studio. All rights reserved.</p>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// MOBILE NAVIGATION
+const menuToggle = document.getElementById("menuToggle");
+const navbar = document.getElementById("navbar");
+
+menuToggle.addEventListener("click", () => {
+  navbar.classList.toggle("open");
+  const isOpen = navbar.classList.contains("open");
+  menuToggle.textContent = isOpen ? "✕" : "☰";
+  menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+});
+
+navbar.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navbar.classList.remove("open");
+    menuToggle.textContent = "☰";
+  });
+});
+
+// CLICK A SERVICE CARD TO SELECT IT IN THE BOOKING FORM
+document.querySelectorAll(".service-card").forEach(card => {
+  card.setAttribute("tabindex", "0");
+  card.setAttribute("role", "link");
+
+  function chooseService() {
+    document.getElementById("service").value = card.dataset.service;
+    document.getElementById("booking").scrollIntoView({ behavior: "smooth" });
+  }
+
+  card.addEventListener("click", event => {
+    if (event.target.closest("a")) {
+      document.getElementById("service").value = card.dataset.service;
+      return;
+    }
+    chooseService();
+  });
+
+  card.addEventListener("keydown", event => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      chooseService();
+    }
+  });
+});
+
+// DISALLOW PAST BOOKING DATES
+const dateInput = document.getElementById("date");
+
+function setMinimumDate() {
+  const now = new Date();
+  const today = new Date(now.getTime() - now.getTimezoneOffset() * 60000)
+    .toISOString().slice(0, 10);
+  dateInput.min = today;
+}
+setMinimumDate();
+
+// BOOKING FORM DEMO
+const bookingForm = document.getElementById("bookingForm");
+const formMessage = document.getElementById("formMessage");
+
+bookingForm.addEventListener("submit", event => {
+  event.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const service = document.getElementById("service").value;
+  const date = dateInput.value;
+  const time = document.getElementById("time").value;
+
+  if (!/^[6-9][0-9]{9}$/.test(phone)) {
+    formMessage.textContent = "Please enter a valid 10-digit Indian mobile number.";
+    return;
+  }
+
+  formMessage.textContent =
+    `Thank you, ${name}! Your ${service} request for ${date} at ${time} has been entered in this demo. Please contact the studio to confirm your appointment.`;
+
+  // This is a front-end demo; no data is sent to a server.
+  bookingForm.reset();
+  setMinimumDate();
+});
+</script>
+
+</body>
+</html>
